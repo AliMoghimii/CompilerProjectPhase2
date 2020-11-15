@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="src">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/src/java-cup-11b.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/java-cup-11b-runtime.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/Quera Tester Project.zip!/" />
+      <root url="jar://$PROJECT_DIR$/src/jflex-full-1.8.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
