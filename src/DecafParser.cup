@@ -1,0 +1,34 @@
+
+import java_cup.runtime.*;
+
+
+parser code {:
+    private DecafScanner decafScanner;
+
+    public parser(DecafScanner decafScanner){
+        this.decafScanner = decafScanner;
+    }
+
+:}
+scan with {: return decafScanner.next_token(); :}
+
+
+terminal ASSIGN, PLUS, MINUS, TIMES, DIVIDE, MOD, AND, SEMI, NOT,
+ TRUE, FALSE, WHILE, IF, ELSE,
+LPAREN, RPAREN, FOR, EQ, LE, LT, GT;
+
+terminal Integer INTLIT;
+
+nonterminal  ForStmt, Expr, Stmt, WhileStmt, IfStmt , elseStmt;
+
+//precedence right SEMI;
+precedence left PLUS, MINUS, GT, EQ ;
+
+Stmt ::= ForStmt | WhileStmt | IfStmt;
+Expr ::= Expr PLUS Expr | Expr MINUS Expr | Expr GT Expr | Expr EQ Expr| INTLIT;
+ForStmt ::= FOR LPAREN Expr SEMI Expr SEMI RPAREN Stmt;
+WhileStmt ::= WHILE LPAREN Expr RPAREN Stmt;
+IfStmt ::= IF LPAREN Expr RPAREN Stmt;
+
+
+

@@ -5,7 +5,6 @@
 import java_cup.runtime.*;
 import java.io.*;
 
-
 // See https://github.com/jflex-de/jflex/issues/222
 @SuppressWarnings("FallThrough")
 public class DecafScanner implements java_cup.runtime.Scanner {
@@ -63,9 +62,11 @@ public class DecafScanner implements java_cup.runtime.Scanner {
   private static final int [] ZZ_CMAP_BLOCKS = zzUnpackcmap_blocks();
 
   private static final String ZZ_CMAP_BLOCKS_PACKED_0 =
-    "\41\0\1\1\3\0\1\2\1\3\3\0\1\4\1\5"+
-    "\1\0\1\6\1\0\1\7\12\10\1\0\1\11\1\0"+
-    "\1\12\u01c2\0";
+    "\45\0\1\1\2\0\1\2\1\3\1\4\1\5\1\0"+
+    "\1\6\1\0\1\7\12\10\1\0\1\11\1\0\1\12"+
+    "\1\13\42\0\1\14\3\0\1\15\1\16\1\0\1\17"+
+    "\1\20\2\0\1\21\2\0\1\22\2\0\1\23\1\24"+
+    "\1\25\1\26\1\0\1\27\u0188\0";
 
   private static int [] zzUnpackcmap_blocks() {
     int [] result = new int[512];
@@ -92,11 +93,13 @@ public class DecafScanner implements java_cup.runtime.Scanner {
   private static final int [] ZZ_ACTION = zzUnpackAction();
 
   private static final String ZZ_ACTION_PACKED_0 =
-    "\1\0\1\1\1\2\1\3\1\1\1\4\1\5\1\6"+
-    "\1\7\1\10\1\11\1\12\1\13";
+    "\1\0\1\1\1\2\1\3\1\4\1\5\1\6\1\7"+
+    "\1\10\1\11\1\12\1\13\1\14\5\1\1\15\3\0"+
+    "\1\16\4\0\1\17\2\0\1\20\1\0\1\21\1\0"+
+    "\1\22\1\23";
 
   private static int [] zzUnpackAction() {
-    int [] result = new int[13];
+    int [] result = new int[36];
     int offset = 0;
     offset = zzUnpackAction(ZZ_ACTION_PACKED_0, offset, result);
     return result;
@@ -121,11 +124,14 @@ public class DecafScanner implements java_cup.runtime.Scanner {
   private static final int [] ZZ_ROWMAP = zzUnpackRowMap();
 
   private static final String ZZ_ROWMAP_PACKED_0 =
-    "\0\0\0\13\0\13\0\13\0\26\0\13\0\13\0\13"+
-    "\0\13\0\41\0\13\0\13\0\13";
+    "\0\0\0\30\0\30\0\30\0\30\0\30\0\30\0\30"+
+    "\0\30\0\60\0\30\0\110\0\30\0\140\0\170\0\220"+
+    "\0\250\0\300\0\30\0\330\0\360\0\u0108\0\30\0\u0120"+
+    "\0\u0138\0\u0150\0\u0168\0\30\0\u0180\0\u0198\0\30\0\u01b0"+
+    "\0\30\0\u01c8\0\30\0\30";
 
   private static int [] zzUnpackRowMap() {
-    int [] result = new int[13];
+    int [] result = new int[36];
     int offset = 0;
     offset = zzUnpackRowMap(ZZ_ROWMAP_PACKED_0, offset, result);
     return result;
@@ -149,10 +155,16 @@ public class DecafScanner implements java_cup.runtime.Scanner {
 
   private static final String ZZ_TRANS_PACKED_0 =
     "\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11"+
-    "\1\12\1\13\1\14\16\0\1\15\17\0\1\12\2\0";
+    "\1\12\1\13\1\14\1\15\1\2\1\16\1\17\1\2"+
+    "\1\20\4\2\1\21\1\2\1\22\40\0\1\12\31\0"+
+    "\1\23\36\0\1\24\22\0\1\25\5\0\1\26\23\0"+
+    "\1\27\34\0\1\30\23\0\1\31\34\0\1\32\24\0"+
+    "\1\33\31\0\1\34\32\0\1\35\21\0\1\36\24\0"+
+    "\1\37\36\0\1\40\20\0\1\41\33\0\1\42\23\0"+
+    "\1\43\27\0\1\44\12\0";
 
   private static int [] zzUnpackTrans() {
-    int [] result = new int[44];
+    int [] result = new int[480];
     int offset = 0;
     offset = zzUnpackTrans(ZZ_TRANS_PACKED_0, offset, result);
     return result;
@@ -195,10 +207,12 @@ public class DecafScanner implements java_cup.runtime.Scanner {
   private static final int [] ZZ_ATTRIBUTE = zzUnpackAttribute();
 
   private static final String ZZ_ATTRIBUTE_PACKED_0 =
-    "\1\0\3\11\1\1\4\11\1\1\3\11";
+    "\1\0\10\11\1\1\1\11\1\1\1\11\5\1\1\11"+
+    "\3\0\1\11\4\0\1\11\2\0\1\11\1\0\1\11"+
+    "\1\0\2\11";
 
   private static int [] zzUnpackAttribute() {
-    int [] result = new int[13];
+    int [] result = new int[36];
     int offset = 0;
     offset = zzUnpackAttribute(ZZ_ATTRIBUTE_PACKED_0, offset, result);
     return result;
@@ -283,17 +297,6 @@ public Symbol token(int tokenType){
     return new Symbol(tokenType);
 }
 
-//public Symbol token(int literal , int tokenType)
-//{
-//    System.out.println(yytext());
-//    return new Symbol(tokenType, yytext());
-//}
-//
-//public Symbol token(String literal , int tokenType)
-//{
-//    System.out.println(yytext());
-//    return new Symbol(tokenType, yytext());
-//}
 
 
   /**
@@ -650,57 +653,97 @@ public Symbol token(int tokenType){
             { System.out.print(yytext());
             }
             // fall through
-          case 12: break;
+          case 20: break;
           case 2:
-            { return token(sym.NOT);
-            }
-            // fall through
-          case 13: break;
-          case 3:
             { return token(sym.MOD);
             }
             // fall through
-          case 14: break;
-          case 4:
-            { return token(sym.TIMES);
-            }
-            // fall through
-          case 15: break;
-          case 5:
-            { return token(sym.PLUS);
-            }
-            // fall through
-          case 16: break;
-          case 6:
-            { return token(sym.MINUS);
-            }
-            // fall through
-          case 17: break;
-          case 7:
-            { return token(sym.DIVIDE);
-            }
-            // fall through
-          case 18: break;
-          case 8:
-            { return token(sym.NUMBER);
-            }
-            // fall through
-          case 19: break;
-          case 9:
-            { return token(sym.SEMI);
-            }
-            // fall through
-          case 20: break;
-          case 10:
-            { return token(sym.ASSIGN);
-            }
-            // fall through
           case 21: break;
-          case 11:
-            { return token(sym.AND);
+          case 3:
+            { return token(sym.LPAREN);
             }
             // fall through
           case 22: break;
+          case 4:
+            { return token(sym.RPAREN);
+            }
+            // fall through
+          case 23: break;
+          case 5:
+            { return token(sym.TIMES);
+            }
+            // fall through
+          case 24: break;
+          case 6:
+            { return token(sym.PLUS);
+            }
+            // fall through
+          case 25: break;
+          case 7:
+            { return token(sym.MINUS);
+            }
+            // fall through
+          case 26: break;
+          case 8:
+            { return token(sym.DIVIDE);
+            }
+            // fall through
+          case 27: break;
+          case 9:
+            { return token(sym.INTLIT);
+            }
+            // fall through
+          case 28: break;
+          case 10:
+            { return token(sym.SEMI);
+            }
+            // fall through
+          case 29: break;
+          case 11:
+            { return token(sym.ASSIGN);
+            }
+            // fall through
+          case 30: break;
+          case 12:
+            { return token(sym.GT);
+            }
+            // fall through
+          case 31: break;
+          case 13:
+            { return token(sym.EQ);
+            }
+            // fall through
+          case 32: break;
+          case 14:
+            { return token(sym.IF);
+            }
+            // fall through
+          case 33: break;
+          case 15:
+            { return token(sym.FOR);
+            }
+            // fall through
+          case 34: break;
+          case 16:
+            { return token(sym.ELSE);
+            }
+            // fall through
+          case 35: break;
+          case 17:
+            { return token(sym.TRUE);
+            }
+            // fall through
+          case 36: break;
+          case 18:
+            { return token(sym.FALSE);
+            }
+            // fall through
+          case 37: break;
+          case 19:
+            { return token(sym.WHILE);
+            }
+            // fall through
+          case 38: break;
           default:
             zzScanError(ZZ_NO_MATCH);
         }
