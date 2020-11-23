@@ -13,7 +13,6 @@ public class Main {
 
         parser decafParser = new parser(scanner);
         decafParser.parse();
-
         /*String inputFile = new Scanner(System.in).next();
         DecafScanner scanner = new DecafScanner(new FileReader(inputFile));*/
 

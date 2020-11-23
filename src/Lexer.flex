@@ -34,36 +34,36 @@ cer = [\n|\r|\n\r]
 // -----------------------------------------------------------rule part ------------------------------------------------
 // ------------------------------------------------------Key word Token rules ------------------------------------------
 
-//int             {return token(sym.INT);}
-//double          {return token(sym.DOUBLE);}
-//void            {return token(sym.VOID);}
-//bool            {return token(sym.BOOL);}
-//string          {return token(sym.STRING);}
-//class           {return token(sym.CLASS);}
-//interface       {return token(sym.INTERFACE);}
-//null            {return token(sym.NULL);}
-//this            {return token(sym.THIS);}
-//extends         {return token(sym.EXTENDS);}
-//implements      {return token(sym.IMPLEMENTS);}
+int             {return token(sym.INT);}
+double          {return token(sym.DOUBLE);}
+void            {return token(sym.VOID);}
+bool            {return token(sym.BOOL);}
+string          {return token(sym.STRING);}
+class           {return token(sym.CLASS);}
+interface       {return token(sym.INTERFACE);}
+null            {return token(sym.NULL);}
+this            {return token(sym.THIS);}
+extends         {return token(sym.EXTENDS);}
+implements      {return token(sym.IMPLEMENTS);}
 for             {return token(sym.FOR);}
 while           {return token(sym.WHILE);}
 if              {return token(sym.IF);}
 else            {return token(sym.ELSE);}
-//return          {return token(sym.RETURN);}
-//break           {return token(sym.BREAK);}
-//continue        {return token(sym.CONTINUE);}
-//new             {return token(sym.NEW);}
-//NewArray        {return token(sym.NEWARRAY);}
-//Print           {return token(sym.PRINT);}
-//ReadInteger     {return token(sym.READINTEGER);}
-//ReadLine        {return token(sym.READLINE);}
-//dtoi            {return token(sym.DTOI);}
-//itod            {return token(sym.ITOD);}
-//btoi            {return token(sym.BTOI);}
-//itob            {return token(sym.ITOB);}
-//private         {return token(sym.PRIVATE);}
-//protected       {return token(sym.PROTECTED);}
-//public          {return token(sym.PUBLIC);}
+return          {return token(sym.RETURN);}
+break           {return token(sym.BREAK);}
+continue        {return token(sym.CONTINUE);}
+new             {return token(sym.NEW);}
+NewArray        {return token(sym.NEWARRAY);}
+Print           {return token(sym.PRINT);}
+ReadInteger     {return token(sym.READINTEGER);}
+ReadLine        {return token(sym.READLINE);}
+dtoi            {return token(sym.DTOI);}
+itod            {return token(sym.ITOD);}
+btoi            {return token(sym.BTOI);}
+itob            {return token(sym.ITOB);}
+private         {return token(sym.PRIVATE);}
+protected       {return token(sym.PROTECTED);}
+public          {return token(sym.PUBLIC);}
 
 // ----------------------------------------------- Keywords and boolean literals ---------------------------------------
 
@@ -78,50 +78,49 @@ false           {return token(sym.FALSE);}
 "%"             {return token(sym.MOD);}
 
 ">"             {return token(sym.GT);}
-//">="            {return token(sym.GE);}
-//"<"             {return token(sym.LT);}
-//"<="            {return token(sym.LE);}
+">="            {return token(sym.GE);}
+"<"             {return token(sym.LT);}
+"<="            {return token(sym.LE);}
 "=="            {return token(sym.EQ);}
-//"!="            {return token(sym.NE);}
-//"!"             {return token(sym.NOT);}
-//"&&"            {return token(sym.AND);}
-//"||"            {return token(sym.OR);}
+"!="            {return token(sym.NE);}
+"!"             {return token(sym.NOT);}
+"&&"            {return token(sym.AND);}
+"||"            {return token(sym.OR);}
 
 ";"             {return token(sym.SEMI);}
-//","             {return token(sym.COMMA);}
-//"."             {return token(sym.DOT);}
+","             {return token(sym.COMMA);}
+"."             {return token(sym.DOT);}
 
-//"["             {return token(sym.LBRACK);}
-//"]"             {return token(sym.RBRACK);}
+"["             {return token(sym.LBRACK);}
+"]"             {return token(sym.RBRACK);}
 "("             {return token(sym.LPAREN);}
 ")"             {return token(sym.RPAREN);}
-//"{"             {return token(sym.LCURLY);}
-//"}"             {return token(sym.RCURLY);}
+"{"             {return token(sym.LCURLY);}
+"}"             {return token(sym.RCURLY);}
 
 // ---------------------------------------------------- Lexer ignored rules --------------------------------------------
 
-//[" "]           {/* no operation*/}
-//"/*" ~"*/"      {/* no operation*/}
-//["//"] ~{cer}   {/* no operation*/}
-//{cer}           {/* no operation*/}
+[" "]           {/* no operation*/}
+"/*" ~"*/"      {/* no operation*/}
+["//"] ~{cer}   {/* no operation*/}
+{cer}           {/* no operation*/}
 
 //// ----------------------------------------------------String literals -----------------------------------------------
 
-//{stringLit}         {return token(sym.STRINGLIT);}
+{stringLit}         {return token(sym.STRINGLIT);}
 
 //// --------------------------------------------- Integer and double literals -----------------------------------------
 
-//{intLit_cmx}        {return token(sym.INTLIT);}
-//{doubleLit}         {return token(sym.DOUBLELIT);}
-//{doubleLit_cmx}     {return token(sym.DOUBLELIT);}
+{intLit_cmx}        {return token(sym.INTLIT);}
 {intLit}            {return token(sym.INTLIT);}
+{doubleLit_cmx}     {return token(sym.DOUBLELIT);}
+{doubleLit}         {return token(sym.DOUBLELIT);}
 
 //// ------------------------------------------------- Identifier ------------------------------------------------------
 
-//{identifier}        {return token(sym.ID);}
+{identifier}        {return token(sym.ID);}
 
 //to Generate lexical Scanner :
 //cd src
 //java -jar jflex-full-1.8.2.jar Lexer.flex
 // java -jar java-cup-11b.jar DecafParser.cup
-// elseStmt ::= ELSE Stmt |

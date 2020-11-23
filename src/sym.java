@@ -6,30 +6,68 @@
 /** CUP generated class containing symbol constants. */
 public class sym {
   /* terminals */
-  public static final int TIMES = 5;
-  public static final int MOD = 7;
-  public static final int AND = 8;
-  public static final int LT = 21;
-  public static final int ELSE = 15;
-  public static final int PLUS = 3;
-  public static final int RPAREN = 17;
-  public static final int SEMI = 9;
-  public static final int WHILE = 13;
-  public static final int NOT = 10;
-  public static final int TRUE = 11;
-  public static final int IF = 14;
-  public static final int GT = 22;
-  public static final int LPAREN = 16;
-  public static final int LE = 20;
-  public static final int INTLIT = 23;
-  public static final int EOF = 0;
   public static final int DIVIDE = 6;
-  public static final int FALSE = 12;
+  public static final int READLINE = 49;
+  public static final int GE = 9;
+  public static final int STRINGLIT = 56;
+  public static final int DOUBLE = 29;
+  public static final int PRIVATE = 60;
+  public static final int CONTINUE = 46;
+  public static final int LPAREN = 17;
+  public static final int SEMI = 23;
+  public static final int INTERFACE = 38;
+  public static final int INT = 28;
+  public static final int FOR = 43;
   public static final int MINUS = 4;
-  public static final int error = 1;
-  public static final int EQ = 19;
+  public static final int RPAREN = 18;
+  public static final int NOT = 14;
+  public static final int AND = 15;
+  public static final int INTLIT = 54;
+  public static final int READINTEGER = 48;
+  public static final int LT = 10;
+  public static final int OR = 16;
+  public static final int BOOL = 30;
+  public static final int COMMA = 24;
+  public static final int CLASS = 34;
+  public static final int NEWARRAY = 27;
+  public static final int DOUBLELIT = 55;
+  public static final int PLUS = 3;
+  public static final int IF = 41;
   public static final int ASSIGN = 2;
-  public static final int FOR = 18;
+  public static final int THIS = 37;
+  public static final int DOT = 25;
+  public static final int ID = 33;
+  public static final int LE = 11;
+  public static final int EOF = 0;
+  public static final int RETURN = 44;
+  public static final int TRUE = 57;
+  public static final int NEW = 26;
+  public static final int error = 1;
+  public static final int LCURLY = 21;
+  public static final int NULL = 39;
+  public static final int MOD = 7;
+  public static final int BREAK = 45;
+  public static final int VOID = 32;
+  public static final int EQ = 12;
+  public static final int DTOI = 50;
+  public static final int LBRACK = 19;
+  public static final int RCURLY = 22;
+  public static final int TIMES = 5;
+  public static final int ELSE = 42;
+  public static final int PROTECTED = 61;
+  public static final int ITOD = 51;
+  public static final int RBRACK = 20;
+  public static final int ITOB = 53;
+  public static final int WHILE = 40;
+  public static final int PUBLIC = 59;
+  public static final int BTOI = 52;
+  public static final int EXTENDS = 36;
+  public static final int NE = 13;
+  public static final int STRING = 31;
+  public static final int FALSE = 58;
+  public static final int IMPLEMENTS = 35;
+  public static final int GT = 8;
+  public static final int PRINT = 47;
   public static final String[] terminalNames = new String[] {
   "EOF",
   "error",
@@ -39,22 +77,60 @@ public class sym {
   "TIMES",
   "DIVIDE",
   "MOD",
-  "AND",
-  "SEMI",
+  "GT",
+  "GE",
+  "LT",
+  "LE",
+  "EQ",
+  "NE",
   "NOT",
-  "TRUE",
-  "FALSE",
+  "AND",
+  "OR",
+  "LPAREN",
+  "RPAREN",
+  "LBRACK",
+  "RBRACK",
+  "LCURLY",
+  "RCURLY",
+  "SEMI",
+  "COMMA",
+  "DOT",
+  "NEW",
+  "NEWARRAY",
+  "INT",
+  "DOUBLE",
+  "BOOL",
+  "STRING",
+  "VOID",
+  "ID",
+  "CLASS",
+  "IMPLEMENTS",
+  "EXTENDS",
+  "THIS",
+  "INTERFACE",
+  "NULL",
   "WHILE",
   "IF",
   "ELSE",
-  "LPAREN",
-  "RPAREN",
   "FOR",
-  "EQ",
-  "LE",
-  "LT",
-  "GT",
-  "INTLIT"
+  "RETURN",
+  "BREAK",
+  "CONTINUE",
+  "PRINT",
+  "READINTEGER",
+  "READLINE",
+  "DTOI",
+  "ITOD",
+  "BTOI",
+  "ITOB",
+  "INTLIT",
+  "DOUBLELIT",
+  "STRINGLIT",
+  "TRUE",
+  "FALSE",
+  "PUBLIC",
+  "PRIVATE",
+  "PROTECTED"
   };
 }
 

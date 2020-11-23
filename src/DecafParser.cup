@@ -13,22 +13,103 @@ parser code {:
 scan with {: return decafScanner.next_token(); :}
 
 
-terminal ASSIGN, PLUS, MINUS, TIMES, DIVIDE, MOD, AND, SEMI, NOT,
- TRUE, FALSE, WHILE, IF, ELSE,
-LPAREN, RPAREN, FOR, EQ, LE, LT, GT;
+terminal ASSIGN , PLUS , MINUS , TIMES , DIVIDE , MOD ;
+terminal GT , GE , LT , LE , EQ , NE , NOT , AND , OR ;
+terminal LPAREN , RPAREN , LBRACK , RBRACK , LCURLY , RCURLY ;
+terminal SEMI , COMMA , DOT ;
+
+terminal NEW , NEWARRAY;
+terminal INT , DOUBLE , BOOL , STRING , VOID, ID ;
+terminal CLASS , IMPLEMENTS , EXTENDS , THIS , INTERFACE , NULL;
+
+terminal WHILE , IF , ELSE , FOR ;
+terminal RETURN , BREAK , CONTINUE;
+
+terminal PRINT , READINTEGER , READLINE;
+terminal DTOI , ITOD , BTOI , ITOB;
 
 terminal Integer INTLIT;
+terminal Double DOUBLELIT;
+terminal String STRINGLIT;
+terminal Boolean TRUE, FALSE;
+terminal PUBLIC , PRIVATE , PROTECTED;
 
-nonterminal  ForStmt, Expr, Stmt, WhileStmt, IfStmt , elseStmt;
+nonterminal  ForStmt, Expr, Stmt, WhileStmt, IfStmt , elseStmt, ExprEps,
+ExprComma, BreakStmt, ReturnStmt, PrintStmt, ContinueStmt, Constant, Call, Actuals;
 
-//precedence right SEMI;
-precedence left PLUS, MINUS, GT, EQ ;
+nonterminal Program , Decl , VariableDecl , Variable ,
+Type , Formals ,ClassDecl ,
+Field , AccessMode, InterfaceDecl ,
+Prototype , StmtBlock, DeclPlus, VariableComma, ExtendsEps,
+FunctionDecl, ImplementsEps, ImplemetsComma,
+FieldStar, PrototypeStar, VariableDeclStar, StmtStar, LValue, Temp;
 
-Stmt ::= ForStmt | WhileStmt | IfStmt;
-Expr ::= Expr PLUS Expr | Expr MINUS Expr | Expr GT Expr | Expr EQ Expr| INTLIT;
-ForStmt ::= FOR LPAREN Expr SEMI Expr SEMI RPAREN Stmt;
+nonterminal Boolean BooleanConstant;
+
+precedence left ID;
+precedence left COMMA;
+precedence right ASSIGN;
+precedence left AND, OR;
+precedence left EQ, NE;
+precedence left LT, LE, GT , GE;
+precedence left PLUS, MINUS;
+precedence left MOD;
+precedence left DIVIDE;
+precedence left TIMES;
+precedence left NOT;
+precedence left DOT;
+
+Program ::= DeclPlus;
+DeclPlus ::= Decl DeclPlus| Decl;
+Decl ::= VariableDecl | FunctionDecl | ClassDecl | InterfaceDecl ;
+VariableDecl ::= Variable ;
+Variable ::= Type ID ;
+Type ::= INT | DOUBLE | BOOL | STRING | ID | Type LBRACK RBRACK ;
+FunctionDecl ::= Type ID LPAREN Formals RPAREN StmtBlock | VOID ID LPAREN Formals RPAREN StmtBlock ;
+Formals ::= VariableComma | ;
+VariableComma ::= Variable COMMA VariableComma | Variable COMMA;
+
+ClassDecl ::= CLASS ID ExtendsEps ImplementsEps LCURLY FieldStar RCURLY;
+ExtendsEps ::= EXTENDS | ;
+ImplementsEps ::= ImplemetsComma | ;
+ImplemetsComma ::= IMPLEMENTS COMMA ImplemetsComma | IMPLEMENTS COMMA;
+FieldStar ::= Field FieldStar | ;
+
+Field ::= AccessMode VariableDecl | AccessMode FunctionDecl ;
+AccessMode ::= PRIVATE | PROTECTED | PUBLIC | ;
+InterfaceDecl ::= INTERFACE ID LCURLY PrototypeStar RCURLY ;
+PrototypeStar ::= Prototype PrototypeStar | ;
+Prototype ::= Type ID RPAREN Formals LPAREN | VOID ID RPAREN Formals LPAREN ;
+StmtBlock ::= LCURLY VariableDeclStar StmtStar RCURLY;
+VariableDeclStar ::= VariableDecl VariableDeclStar | ;
+StmtStar ::= Stmt StmtStar | ;
+
+Stmt ::= ExprEps SEMI |ForStmt | WhileStmt | IfStmt| BreakStmt| ContinueStmt | ReturnStmt | PrintStmt | StmtBlock ;
+
+Expr ::= LValue ASSIGN Expr | Constant | LValue | THIS | Call |
+LPAREN Expr RPAREN | Expr PLUS Expr | Expr MINUS Expr | Expr TIMES Expr |
+Expr DIVIDE Expr | Expr MOD Expr |  MINUS Expr |
+Expr GT Expr | Expr LT Expr | Expr LE Expr | Expr GE Expr |
+Expr EQ Expr | Expr NE Expr | Expr AND Expr
+| Expr OR Expr  | NOT Expr | READINTEGER LPAREN RPAREN
+| READLINE LPAREN RPAREN | NEW ID | NEWARRAY LPAREN
+Expr COMMA Type RPAREN | ITOD LPAREN Expr RPAREN |
+DTOI LPAREN Expr RPAREN | ITOB LPAREN Expr RPAREN |
+BTOI LPAREN Expr RPAREN;
+
+ForStmt ::= FOR LPAREN ExprEps SEMI Expr SEMI ExprEps RPAREN Stmt;
+ExprEps ::= Expr | ;
+ExprComma ::= Expr COMMA Temp;
+Temp ::= ExprComma | ;
+ReturnStmt ::= RETURN ExprEps SEMI;
+BreakStmt ::= BREAK SEMI;
+ContinueStmt ::= CONTINUE SEMI;
+LValue ::= ID | Expr DOT ID | Expr LBRACK Expr RBRACK;
+Call ::= ID RPAREN  LPAREN | Expr DOT ID RPAREN  LPAREN;
+
 WhileStmt ::= WHILE LPAREN Expr RPAREN Stmt;
 IfStmt ::= IF LPAREN Expr RPAREN Stmt;
-
-
+PrintStmt ::= PRINT LPAREN ExprComma RPAREN SEMI;
+Constant ::= INTLIT | DOUBLELIT | BooleanConstant | STRINGLIT | NULL;
+BooleanConstant ::= TRUE | FALSE;
 
