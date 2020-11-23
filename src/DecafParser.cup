@@ -58,6 +58,7 @@ precedence left DIVIDE;
 precedence left TIMES;
 precedence left NOT;
 precedence left DOT;
+precedence left LPAREN;
 
 Program ::= DeclPlus;
 DeclPlus ::= Decl DeclPlus| Decl;
@@ -105,11 +106,11 @@ ReturnStmt ::= RETURN ExprEps SEMI;
 BreakStmt ::= BREAK SEMI;
 ContinueStmt ::= CONTINUE SEMI;
 LValue ::= ID | Expr DOT ID | Expr LBRACK Expr RBRACK;
-Call ::= ID RPAREN  LPAREN | Expr DOT ID RPAREN  LPAREN;
+Call ::= ID RPAREN Actuals LPAREN | Expr DOT ID RPAREN Actuals LPAREN;
 
 WhileStmt ::= WHILE LPAREN Expr RPAREN Stmt;
 IfStmt ::= IF LPAREN Expr RPAREN Stmt;
 PrintStmt ::= PRINT LPAREN ExprComma RPAREN SEMI;
 Constant ::= INTLIT | DOUBLELIT | BooleanConstant | STRINGLIT | NULL;
+Actuals ::= ExprComma | ;
 BooleanConstant ::= TRUE | FALSE;
-
