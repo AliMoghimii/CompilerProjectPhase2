@@ -15,8 +15,8 @@ public class Main {
 
         try {
 
-
             decafParser.parse();
+            System.out.println("OK");
         }
         catch (Exception e){
             System.out.println("Syntax Error");

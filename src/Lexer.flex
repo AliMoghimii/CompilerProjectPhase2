@@ -16,7 +16,7 @@ import java.io.*;
 
 public Symbol token(int tokenType){
 
-    System.out.println(yytext());
+    //System.out.println(yytext());
     return new Symbol(tokenType);
 }
 

@@ -493,7 +493,7 @@ public class DecafScanner implements java_cup.runtime.Scanner {
 
 public Symbol token(int tokenType){
 
-    System.out.println(yytext());
+    //System.out.println(yytext());
     return new Symbol(tokenType);
 }
 
