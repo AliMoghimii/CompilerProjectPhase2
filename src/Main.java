@@ -12,16 +12,15 @@ public class Main {
         DecafScanner scanner = new DecafScanner(f1);
 
         parser decafParser = new parser(scanner);
-        decafParser.parse();
-        /*String inputFile = new Scanner(System.in).next();
-        DecafScanner scanner = new DecafScanner(new FileReader(inputFile));*/
+
+        try {
 
 
-//        while(true) {
-//            int code = scanner.yylex();
-//            if (code == scanner.YYEOF)
-//                break;
-//        }
-//    }
+            decafParser.parse();
+        }
+        catch (Exception e){
+            System.out.println("Syntax Error");
+        }
+
     }
 }

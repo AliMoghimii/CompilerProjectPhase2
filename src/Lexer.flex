@@ -57,6 +57,7 @@ NewArray        {return token(sym.NEWARRAY);}
 Print           {return token(sym.PRINT);}
 ReadInteger     {return token(sym.READINTEGER);}
 ReadLine        {return token(sym.READLINE);}
+
 dtoi            {return token(sym.DTOI);}
 itod            {return token(sym.ITOD);}
 btoi            {return token(sym.BTOI);}
@@ -102,7 +103,7 @@ false           {return token(sym.FALSE);}
 
 [" "]           {/* no operation*/}
 "/*" ~"*/"      {/* no operation*/}
-["//"] ~{cer}   {/* no operation*/}
+\/\/ ~{cer}   {/* no operation*/}
 {cer}           {/* no operation*/}
 
 //// ----------------------------------------------------String literals -----------------------------------------------

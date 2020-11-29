@@ -1,1 +1,5 @@
-for(1;1;1){}
+interface id {
+
+    int alireza();
+
+}
